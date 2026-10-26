@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+//Seleziona la palette corrispondente al tema predefinito
+$-default-palette: null;
+
+@if $default-theme == light {
+  $-default-palette: $light;
+} @else if $default-theme == dark {
+  $-default-palette: $dark;
+} @else {
+  @error "$default-theme deve essere light oppure dark.";
+}
+
+@each $name, $value in $-default-palette {
+  .clr-#{$name} {
+    color: var(--color-#{$name});
+  }
+  .bg-#{$name} {
+    background-color: var(--color-#{$name});
+  }
+}

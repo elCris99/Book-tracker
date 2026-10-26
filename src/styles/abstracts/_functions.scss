@@ -1,0 +1,41 @@
+@use "sass:map";
+@use "colors" as *;
+@use "typography" as *;
+@use "sizes" as *;
+@use "tokens" as *;
+
+// Uso normale: clr("action") mantiene il riferimento dinamico al tema.
+// clr("action", "dark") restituisce invece un colore fisso a compilazione.
+@function clr($role, $scheme: null) {
+  $palette: $active-theme;
+  @if $scheme == "light" {
+    $palette: $light;
+  } @else if $scheme == "dark" {
+    $palette: $dark;
+  } @else if $scheme != null {
+    @error "Tema sconosciuto: #{$scheme}";
+  }
+  @if not map.has-key($palette, $role) {
+    @error "Ruolo colore sconosciuto: #{$role}";
+  }
+  @if $scheme == null {
+    @return var(--color-#{$role});
+  }
+  @return map.get($palette, $role);
+}
+
+@function fs($font-size) {
+  @if map.has-key($font-sizes, $font-size) {
+    @return map.get($font-sizes, $font-size);
+  } @else {
+    @error '$font-sizes does not have that size!';
+  }
+}
+
+@function size($size) {
+  @if map.has-key($sizes, $size) {
+    @return map.get($sizes, $size);
+  } @else {
+    @error '$sizes does not have that size!';
+  }
+}

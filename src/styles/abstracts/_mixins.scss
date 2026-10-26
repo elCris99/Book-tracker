@@ -1,0 +1,114 @@
+@use "sass:meta";
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "breakpoints" as *;
+@use "tokens" as *;
+@use "typography" as *;
+
+@mixin mq($size) {
+  @if map.has-key($breakpoints, $size) {
+    $breakpoint: map.get($breakpoints, $size);
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if meta.type-of($size) == number {
+    @if math.is-unitless($size) {
+      @error 'when using a number with @mq() make sure to include a unit';
+    } @else {
+      @media screen and (min-width: $size) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'the keyword #{$size} is not in the $breakpoints map';
+  }
+}
+
+@mixin heading($text-preset, $color: $heading-color-default) {
+  color: $color;
+  text-transform: $heading-text-transform;
+
+  @include text-role($text-preset);
+}
+
+@mixin text-role($role) {
+  $role-map: map.get($text-role-map, $role);
+
+  @if not $role-map {
+    @error "text-role '#{$role}' non trovato in $text-role-map";
+  }
+
+  @each $bp, $set-name in $role-map {
+    // MOBILE FIRST (base styles)
+    @if $bp == small {
+      @include apply-text-set($set-name);
+
+      // BREAKPOINTS (medium, large, ecc.)
+    } @else {
+      @include mq($bp) {
+        @include apply-text-set($set-name);
+      }
+    }
+  }
+}
+
+@mixin apply-text-set($set-name) {
+  font-size: var(--#{$set-name}-fs);
+  line-height: var(--#{$set-name}-lh);
+  letter-spacing: var(--#{$set-name}-ls);
+  font-family: var(--#{$set-name}-ff);
+  font-weight: var(--#{$set-name}-fw);
+}
+
+@mixin responsive-spacing($property, $values...) {
+  $first: list.nth($values, 1);
+  @if meta.type-of($first) == "map" {
+    @each $bp, $value in $first {
+      @if $bp == small {
+        & {
+          #{$property}: $value;
+        }
+      } @else {
+        @include mq($bp) {
+          #{$property}: $value;
+        }
+      }
+    }
+  } @else {
+    // Inizializzazione
+    $small: null;
+    $medium: null;
+    $large: null;
+
+    // Estrazione valori
+    @if list.length($values) >= 1 {
+      $small: list.nth($values, 1);
+    }
+
+    @if list.length($values) >= 2 {
+      $medium: list.nth($values, 2);
+    }
+
+    @if list.length($values) >= 3 {
+      $large: list.nth($values, 3);
+    }
+
+    // Small (mobile-first)
+    & {
+      #{$property}: $small;
+    }
+    // Se esiste il valore per medium → genera media query
+    @if $medium != null {
+      @include mq(medium) {
+        #{$property}: $medium;
+      }
+    }
+    // Se esiste il valore per large → genera media query
+    @if $large != null {
+      @include mq(large) {
+        #{$property}: $large;
+      }
+    }
+  }
+}

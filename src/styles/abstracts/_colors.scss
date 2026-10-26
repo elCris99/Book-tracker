@@ -1,0 +1,50 @@
+// Primitive fisse: i numeri ordinano i colori, non cambiano con il tema.
+$-clr-sage-050: #f7f8f5;
+$-clr-sage-100: #f1f5f0;
+$-clr-sage-150: #ecefea;
+$-clr-sage-300: #c8d2c9;
+$-clr-sage-400: #b6c5ba;
+$-clr-sage-600: #4d5b52;
+$-clr-sage-700: #35443a;
+$-clr-sage-800: #1c2a23;
+$-clr-sage-850: #1c2520;
+$-clr-sage-900: #111b17;
+$-clr-forest-300: #b2d8bd;
+$-clr-forest-400: #9bc8aa;
+$-clr-forest-800: #285642;
+$-clr-forest-900: #1e4735;
+
+$light: (
+  "background": $-clr-sage-050,
+  "surface": $-clr-sage-150,
+  "text-navbar": $-clr-sage-850,
+  "text": $-clr-sage-600,
+  "border": $-clr-sage-300,
+  "action": $-clr-forest-800,
+  "action-hover": $-clr-forest-900,
+  "on-action": $-clr-sage-050,
+  "focus": $-clr-forest-800,
+);
+
+$dark: (
+  "background": $-clr-sage-900,
+  "surface": $-clr-sage-800,
+  "text-navbar": $-clr-sage-100,
+  "text": $-clr-sage-400,
+  "border": $-clr-sage-700,
+  "action": $-clr-forest-400,
+  "action-hover": $-clr-forest-300,
+  "on-action": $-clr-sage-900,
+  "focus": $-clr-forest-400,
+);
+
+// Alias SCSS: il browser risolve le custom properties al cambio tema.
+$clr-background: var(--color-background);
+$clr-surface: var(--color-surface);
+$clr-text-navbar: var(--color-text-navbar);
+$clr-text: var(--color-text);
+$clr-border: var(--color-border);
+$clr-action: var(--color-action);
+$clr-action-hover: var(--color-action-hover);
+$clr-on-action: var(--color-on-action);
+$clr-focus: var(--color-focus);
