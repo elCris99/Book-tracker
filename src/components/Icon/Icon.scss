@@ -1,0 +1,31 @@
+@use "../../styles/abstracts/" as *;
+
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+
+  background-color: currentColor;
+
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+
+  &--sm {
+    inline-size: $size-400;
+    block-size: $size-400;
+  }
+
+  &--md {
+    inline-size: $size-600;
+    block-size: $size-600;
+  }
+
+  &--lg {
+    inline-size: $size-800;
+    block-size: $size-800;
+  }
+}

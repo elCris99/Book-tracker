@@ -1,7 +1,5 @@
-import "./Button.scss";
-
 type ButtonProps = React.ComponentProps<"button"> & {
-  variant?: "primary" | "accent";
+  variant?: "primary" | "outline";
 };
 
 function Button({ children, variant = "primary", ...props }: ButtonProps) {

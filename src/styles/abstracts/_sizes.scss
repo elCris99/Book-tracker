@@ -1,37 +1,37 @@
+@use "sass:map";
+
 // for creating utility classes
 $sizes: (
-  1: 0.25rem,
-  2: 0.5rem,
-  3: 0.75rem,
-  4: 1rem,
-  5: 1.25rem,
-  6: 1.5rem,
-  7: 1.75rem,
-  8: 2rem,
-  9: 2.5rem,
-  10: 3rem,
-  11: 3.5rem,
-  12: 4rem,
-  13: 4.5rem,
-  14: 5rem,
-  15: 5.5rem,
-  16: 6rem,
+  100: 0.25rem,
+  // 4px
+  200: 0.5rem,
+  // 8px
+  300: 0.75rem,
+  // 12px
+  400: 1rem,
+  // 16px
+  500: 1.25rem,
+  // 20px
+  600: 1.5rem,
+  // 24px
+  800: 2rem,
+  // 32px
+  900: 3rem,
+  // 48px
+  1000: 4rem,
+  // 64px
+  1100: 5rem, // 80px
 );
 
-// for use in the code base
-$size-1: 0.25rem;
-$size-2: 0.5rem;
-$size-3: 0.75rem;
-$size-4: 1rem;
-$size-5: 1.25rem;
-$size-6: 1.5rem;
-$size-7: 1.75rem;
-$size-8: 2rem;
-$size-9: 2.5rem;
-$size-10: 3rem;
-$size-11: 3.5rem;
-$size-12: 4rem;
-$size-13: 4.5rem;
-$size-14: 5rem;
-$size-15: 5.5rem;
-$size-16: 6rem;
+// Alias per i componenti.
+
+$size-100: map.get($sizes, 100);
+$size-200: map.get($sizes, 200);
+$size-300: map.get($sizes, 300);
+$size-400: map.get($sizes, 400);
+$size-500: map.get($sizes, 500);
+$size-600: map.get($sizes, 600);
+$size-800: map.get($sizes, 800);
+$size-900: map.get($sizes, 900);
+$size-1000: map.get($sizes, 1000);
+$size-1100: map.get($sizes, 1100);

@@ -1,7 +1,6 @@
-@use "sass:map";
 @use "../abstracts" as *;
 
-//Seleziona la palette corrispondente al tema predefinito
+// Seleziona la palette corrispondente al tema predefinito.
 $-default-palette: null;
 
 @if $default-theme == light {
@@ -16,43 +15,20 @@ $-default-palette: null;
   --default-theme: #{$default-theme};
   --enable-system-theme: #{$enable-system-theme};
 
-  //Breakpoint
+  // Breakpoint
   @each $name, $value in $breakpoints {
     --bp-#{$name}: #{$value};
   }
 
-  //Font size
-  @each $size-name, $size-value in $font-sizes {
-    --fs-#{$size-name}: #{$size-value};
-  }
-
-  //Line height
-  @each $size-name, $size-value in $line-heights {
-    --lh-#{$size-name}: #{$size-value};
-  }
-
-  //Letter-spacing
-  @each $size-name, $size-value in $letter-spacings {
-    --ls-#{$size-name}: #{$size-value};
-  }
-
-  //Tema predefinito: schema e palette restano coerenti.
+  // Tema predefinito
   color-scheme: #{$default-theme};
+
   @each $name, $value in $-default-palette {
     --color-#{$name}: #{$value};
   }
-
-  //Preset tipografici
-  @each $set-name, $values in $text-presets {
-    --#{$set-name}-fs: #{map.get($values, "fs")};
-    --#{$set-name}-lh: #{map.get($values, "lh")};
-    --#{$set-name}-ls: #{map.get($values, "ls")};
-    --#{$set-name}-ff: #{map.get($values, "ff")};
-    --#{$set-name}-fw: #{map.get($values, "fw")};
-  }
 }
 
-//Preferenze del sistema
+// Preferenze del sistema
 // Si applicano soltanto in assenza di una scelta esplicita light/dark.
 @if $enable-system-theme {
   @media (prefers-color-scheme: light) {

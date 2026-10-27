@@ -1,41 +1,40 @@
 // Primitive fisse: i numeri ordinano i colori, non cambiano con il tema.
-$-clr-sage-050: #f7f8f5;
-$-clr-sage-100: #f1f5f0;
-$-clr-sage-150: #ecefea;
-$-clr-sage-300: #c8d2c9;
-$-clr-sage-400: #b6c5ba;
-$-clr-sage-600: #4d5b52;
-$-clr-sage-700: #35443a;
-$-clr-sage-800: #1c2a23;
-$-clr-sage-850: #1c2520;
-$-clr-sage-900: #111b17;
-$-clr-forest-300: #b2d8bd;
-$-clr-forest-400: #9bc8aa;
-$-clr-forest-800: #285642;
-$-clr-forest-900: #1e4735;
+// Due famiglie: neutri caldi e un solo accento terracotta.
+$-clr-warm-050: #fff9ef;
+$-clr-warm-150: #f2e6d4;
+$-clr-warm-300: #ddd0be;
+$-clr-warm-400: #bcaf9f;
+$-clr-warm-600: #70665e;
+$-clr-warm-700: #564a40;
+$-clr-warm-800: #302925;
+$-clr-warm-900: #211d1b;
+$-clr-terracotta-300: #f0cfc2;
+$-clr-terracotta-400: #ef9a85;
+$-clr-terracotta-800: #b83d2b;
+$-clr-terracotta-900: #9f3223;
 
 $light: (
-  "background": $-clr-sage-050,
-  "surface": $-clr-sage-150,
-  "text-navbar": $-clr-sage-850,
-  "text": $-clr-sage-600,
-  "border": $-clr-sage-300,
-  "action": $-clr-forest-800,
-  "action-hover": $-clr-forest-900,
-  "on-action": $-clr-sage-050,
-  "focus": $-clr-forest-800,
+  "background": $-clr-warm-050,
+  "surface": $-clr-warm-150,
+  "text-navbar": $-clr-warm-900,
+  "text": $-clr-warm-600,
+  "border": $-clr-warm-300,
+  "action": $-clr-terracotta-800,
+  "action-hover": $-clr-terracotta-900,
+  "on-action": $-clr-warm-050,
+  "focus": $-clr-terracotta-800,
 );
 
 $dark: (
-  "background": $-clr-sage-900,
-  "surface": $-clr-sage-800,
-  "text-navbar": $-clr-sage-100,
-  "text": $-clr-sage-400,
-  "border": $-clr-sage-700,
-  "action": $-clr-forest-400,
-  "action-hover": $-clr-forest-300,
-  "on-action": $-clr-sage-900,
-  "focus": $-clr-forest-400,
+  "background": $-clr-warm-900,
+  "surface": $-clr-warm-800,
+  "text-navbar": $-clr-warm-050,
+  "text": $-clr-warm-400,
+  "border": $-clr-warm-700,
+  "action": $-clr-terracotta-400,
+  "action-hover": $-clr-terracotta-300,
+  "on-action": $-clr-warm-900,
+  "focus": $-clr-terracotta-400,
 );
 
 // Alias SCSS: il browser risolve le custom properties al cambio tema.

@@ -33,36 +33,42 @@
 }
 
 @mixin text-role($role) {
-  $role-map: map.get($text-role-map, $role);
+  @include apply-text-set($role);
 
-  @if not $role-map {
-    @error "text-role '#{$role}' non trovato in $text-role-map";
-  }
+  @if map.has-key($text-responsive-presets, $role) {
+    $responsive: map.get($text-responsive-presets, $role);
 
-  @each $bp, $set-name in $role-map {
-    // MOBILE FIRST (base styles)
-    @if $bp == small {
-      @include apply-text-set($set-name);
-
-      // BREAKPOINTS (medium, large, ecc.)
-    } @else {
-      @include mq($bp) {
-        @include apply-text-set($set-name);
+    @each $breakpoint, $properties in $responsive {
+      @include mq($breakpoint) {
+        @each $property, $value in $properties {
+          @if $property == "fs" {
+            font-size: $value;
+          } @else {
+            @error "Proprietà tipografica '#{$property}' non supportata.";
+          }
+        }
       }
     }
   }
 }
 
 @mixin apply-text-set($set-name) {
-  font-size: var(--#{$set-name}-fs);
-  line-height: var(--#{$set-name}-lh);
-  letter-spacing: var(--#{$set-name}-ls);
-  font-family: var(--#{$set-name}-ff);
-  font-weight: var(--#{$set-name}-fw);
+  $preset: map.get($text-presets, $set-name);
+
+  @if $preset == null {
+    @error "Preset tipografico '#{$set-name}' non trovato.";
+  }
+
+  font-family: map.get($preset, "ff");
+  font-size: map.get($preset, "fs");
+  font-weight: map.get($preset, "fw");
+  line-height: map.get($preset, "lh");
+  letter-spacing: map.get($preset, "ls");
 }
 
 @mixin responsive-spacing($property, $values...) {
   $first: list.nth($values, 1);
+
   @if meta.type-of($first) == "map" {
     @each $bp, $value in $first {
       @if $bp == small {
@@ -98,13 +104,15 @@
     & {
       #{$property}: $small;
     }
-    // Se esiste il valore per medium → genera media query
+
+    // Medium
     @if $medium != null {
       @include mq(medium) {
         #{$property}: $medium;
       }
     }
-    // Se esiste il valore per large → genera media query
+
+    // Large
     @if $large != null {
       @include mq(large) {
         #{$property}: $large;

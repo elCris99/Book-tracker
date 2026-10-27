@@ -1,11 +1,17 @@
 import { Outlet } from "react-router";
-import Navbar from "../../components/Navbar";
+import SiteHeader from "../../components/SiteHeader";
+import MobileNavigation from "../../components/MobileNavigation";
 
 function RootLayout() {
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <SiteHeader />
+
+      <main>
+        <Outlet />
+      </main>
+
+      <MobileNavigation />
     </>
   );
 }

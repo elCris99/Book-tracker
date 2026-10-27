@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
-const THEME_STORAGE_KEY = "portfolio-theme";
+const THEME_STORAGE_KEY = "book-tracker-theme";
 
 function getThemeConfig() {
   const rootStyles = getComputedStyle(document.documentElement);

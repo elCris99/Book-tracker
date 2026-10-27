@@ -1,0 +1,63 @@
+@use "../../styles/abstracts" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: $button-text-transform;
+
+  padding: $button-padding;
+  border: $button-border;
+  border-radius: $button-border-radius;
+
+  transition:
+    color 275ms ease,
+    background-color 275ms ease,
+    border-color 275ms ease;
+
+  @include text-role("ui");
+
+  // Primary
+  &[data-type="primary"] {
+    color: $button-primary-color;
+    background-color: $button-primary-background;
+
+    &:hover {
+      color: $button-primary-color-hover;
+      background-color: $button-primary-background-hover;
+    }
+  }
+
+  // Outline
+  &[data-type="outline"] {
+    color: $button-outline-color;
+    background-color: $button-outline-background;
+    border-color: $button-outline-border-color;
+
+    &:hover {
+      color: $button-outline-color-hover;
+      background-color: $button-outline-background-hover;
+      border-color: $button-outline-border-color-hover;
+    }
+  }
+
+  // Focus
+  &:focus-visible {
+    outline: $button-focus-width solid $button-focus-color;
+    outline-offset: $button-focus-offset;
+  }
+
+  // Disabled
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

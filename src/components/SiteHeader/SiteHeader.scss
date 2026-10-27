@@ -1,0 +1,126 @@
+@use "../../styles/abstracts/" as *;
+
+.site-header {
+  background-color: $site-header-background-color;
+  padding-block: $site-header-padding-block;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $site-header-gap;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: $size-200;
+    flex-shrink: 0;
+
+    text-decoration: none;
+    color: $site-header-logo-color;
+
+    @include text-role("title");
+  }
+
+  &__search {
+    display: none;
+    align-items: center;
+    gap: $size-200;
+
+    border: $site-header-search-border;
+    border-radius: $border-radius-1;
+    padding-inline: $size-400;
+
+    &:focus-within {
+      border-color: $site-header-search-border-focus;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+
+      padding-block: $size-300;
+      background-color: transparent;
+      border: 0;
+      outline: none;
+
+      font: inherit;
+      color: $site-header-search-text-color;
+    }
+
+    &-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      color: $site-header-search-submit-color;
+      background-color: transparent;
+      border: 0;
+      border-radius: $border-radius-1;
+      cursor: pointer;
+
+      &:hover {
+        color: $site-header-search-submit-color-hover;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $clr-focus;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    @include text-role("ui");
+  }
+
+  &__navigation {
+    display: none;
+    align-items: center;
+    column-gap: $size-400;
+
+    a {
+      text-decoration: none;
+      color: $site-header-navigation-color;
+
+      &:hover {
+        text-decoration: underline;
+        color: $site-header-navigation-color-hover;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    column-gap: $size-400;
+  }
+
+  @include mq(large) {
+    &__inner {
+      gap: $site-header-gap-large;
+    }
+
+    &__search {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      max-width: $site-header-search-max-width;
+    }
+
+    &__actions {
+      column-gap: $size-600;
+    }
+
+    &__navigation {
+      display: flex;
+    }
+  }
+}
