@@ -73,6 +73,19 @@ $site-header-navigation-color: $clr-text-navbar;
 $site-header-navigation-color-hover: $clr-action;
 
 // ========================================
+//? MOBILE NAVIGATION
+// ========================================
+
+$mobile-navigation-background-color: $clr-navigation-overlay;
+$mobile-navigation-border-color: $clr-border;
+
+$mobile-navigation-link-color: $clr-text;
+$mobile-navigation-link-color-active: $clr-action;
+$mobile-navigation-link-color-hover: $clr-action;
+
+$mobile-navigation-height: 5rem; // 80px
+
+// ========================================
 //? BUTTONS
 // ========================================
 
@@ -81,6 +94,9 @@ $button-text-transform: none;
 $button-padding: $size-300 $size-600;
 $button-border: 1px solid transparent;
 $button-border-radius: $border-radius-1;
+
+// Gap
+$button-column-gap: $size-300;
 
 // Primary
 $button-primary-color: $clr-on-action;
@@ -102,3 +118,172 @@ $button-outline-border-color-hover: $clr-action-hover;
 $button-focus-color: $clr-focus;
 $button-focus-width: 2px;
 $button-focus-offset: 3px;
+
+// ========================================
+//? HERO SECTION
+// ========================================
+
+// Base
+$hero-background-color: $clr-surface;
+$hero-padding-block: $size-800;
+$hero-padding-block-large: $size-1100;
+
+// Layout
+$hero-gap: $size-800;
+$hero-gap-large: $size-1000;
+$hero-content-gap: $size-500;
+
+// Typography
+$hero-title-color: $clr-text-navbar;
+$hero-description-color: $clr-text;
+$hero-description-max-width: 45ch;
+
+// Media
+$hero-media-max-width: 18rem;
+
+// ========================================
+//? FEATURES SECTION
+// ========================================
+
+// Base
+$features-background-color: $clr-background;
+$features-text-color: $clr-text;
+$features-padding-block: $size-1000;
+$features-padding-block-large: $size-1100;
+
+// Layout
+$features-gap: $size-900;
+$features-intro-gap: $size-400;
+$features-grid-gap: $size-500;
+
+// Typography
+$features-eyebrow-color: $clr-action;
+$features-title-color: $clr-text-navbar;
+
+// Card
+$features-card-padding: $size-600;
+$features-card-gap: $size-400;
+$features-card-background-color: $clr-surface;
+$features-card-border: 1px solid $clr-border;
+$features-card-border-radius: $border-radius-2;
+$features-card-title-color: $clr-text-navbar;
+
+// Icon
+$features-icon-size: $size-1000;
+$features-icon-background-color: $clr-background;
+$features-icon-color: $clr-action;
+
+// ========================================
+//? HOW IT WORKS SECTION
+// ========================================
+
+// Base
+$how-it-works-background-color: $clr-surface;
+$how-it-works-text-color: $clr-text;
+$how-it-works-padding-block: $size-1000;
+$how-it-works-padding-block-large: $size-1100;
+
+// Layout
+$how-it-works-gap: $size-800;
+$how-it-works-gap-large: $size-1000;
+$how-it-works-content-gap: $size-800;
+$how-it-works-steps-gap: $size-600;
+$how-it-works-step-gap: $size-400;
+$how-it-works-step-content-gap: $size-200;
+
+// Preview
+$how-it-works-preview-padding: $size-600;
+$how-it-works-preview-gap: $size-500;
+$how-it-works-preview-header-gap: $size-400;
+$how-it-works-preview-background-color: $clr-background;
+$how-it-works-preview-border: 1px solid $clr-border;
+$how-it-works-preview-border-radius: $border-radius-2;
+$how-it-works-preview-image-radius: $border-radius-1;
+$how-it-works-preview-label-color: $clr-text-navbar;
+$how-it-works-preview-tag-color: $clr-action;
+
+// Typography
+$how-it-works-title-color: $clr-text-navbar;
+$how-it-works-step-title-color: $clr-text-navbar;
+$how-it-works-step-description-max-width: 38ch;
+
+// Step number
+$how-it-works-step-number-size: 3.75rem;
+$how-it-works-step-number-background: $clr-action;
+$how-it-works-step-number-color: $clr-on-action;
+
+// ========================================
+//? GENRES SECTION
+// ========================================
+
+// Base
+$genres-background-color: $clr-background;
+$genres-text-color: $clr-text;
+$genres-padding-block: $size-1000;
+$genres-padding-block-large: $size-1100;
+
+// Layout
+$genres-gap: $size-900;
+$genres-intro-gap: $size-400;
+$genres-grid-gap: $size-500;
+
+// Typography
+$genres-title-color: $clr-text-navbar;
+$genres-description-color: $clr-text;
+$genres-description-max-width: 55ch;
+
+// Card
+$genres-card-background-color: $clr-surface;
+$genres-card-border: 1px solid $clr-border;
+$genres-card-border-radius: $border-radius-2;
+$genres-card-title-color: $clr-text-navbar;
+$genres-card-title-padding: $size-500;
+
+// Interaction
+$genres-card-border-hover: $clr-action;
+$genres-card-focus-color: $clr-focus;
+$genres-card-focus-offset: $size-100;
+
+// ========================================
+//? FINAL CTA SECTION
+// ========================================
+
+// Base
+$final-cta-background-color: $clr-surface;
+$final-cta-text-color: $clr-text;
+$final-cta-padding-block: $size-800;
+$final-cta-padding-block-large: $size-1000;
+
+// Layout
+$final-cta-gap: $size-800;
+$final-cta-gap-large: $size-1000;
+$final-cta-content-gap: $size-500;
+$final-cta-actions-gap: $size-500;
+
+// Typography
+$final-cta-title-color: $clr-text-navbar;
+$final-cta-description-color: $clr-text;
+$final-cta-login-color: $clr-text;
+$final-cta-login-link-color: $clr-action;
+$final-cta-login-link-color-hover: $clr-action-hover;
+
+// Media
+$final-cta-media-max-width: 18rem;
+$final-cta-media-max-width-large: 25rem;
+
+// ========================================
+//? SITE FOOTER
+// ========================================
+
+// Base
+$site-footer-background-color: $clr-background;
+$site-footer-padding-block: $size-800;
+$site-footer-border-color: $clr-border;
+
+// Layout
+$site-footer-gap: $size-400;
+$site-footer-logo-gap: $size-300;
+
+// Typography
+$site-footer-logo-color: $clr-text-navbar;
+$site-footer-copyright-color: $clr-text;

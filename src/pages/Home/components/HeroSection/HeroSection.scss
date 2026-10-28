@@ -1,0 +1,66 @@
+@use "../../../../styles/abstracts/" as *;
+
+.hero {
+  background-color: $hero-background-color;
+  padding-block: $hero-padding-block;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: $hero-gap;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $hero-content-gap;
+    text-align: center;
+  }
+
+  &__title {
+    @include text-role("display");
+    color: $hero-title-color;
+  }
+
+  &__description {
+    @include text-role("lead");
+    color: $hero-description-color;
+    max-width: $hero-description-max-width;
+  }
+
+  &__media {
+    grid-row: 1;
+    width: 100%;
+    max-width: $hero-media-max-width;
+    min-width: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include mq(large) {
+    padding-block: $hero-padding-block-large;
+
+    &__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-items: stretch;
+      gap: $hero-gap-large;
+    }
+
+    &__content {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &__media {
+      grid-row: auto;
+      max-width: none;
+    }
+  }
+}

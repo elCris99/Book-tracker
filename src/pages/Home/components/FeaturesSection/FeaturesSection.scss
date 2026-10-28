@@ -1,0 +1,90 @@
+@use "../../../../styles/abstracts" as *;
+
+.features {
+  background-color: $features-background-color;
+  color: $features-text-color;
+
+  @include responsive-spacing(
+    padding-block,
+    $features-padding-block,
+    $features-padding-block-large
+  );
+
+  &__inner {
+    display: grid;
+    gap: $features-gap;
+  }
+
+  &__intro {
+    display: grid;
+    gap: $features-intro-gap;
+  }
+
+  &__eyebrow {
+    @include text-role("ui");
+
+    color: $features-eyebrow-color;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @include text-role("heading");
+
+    color: $features-title-color;
+  }
+
+  &__description {
+    @include text-role("lead");
+  }
+
+  &__grid {
+    display: grid;
+    gap: $features-grid-gap;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $features-card-gap;
+
+    padding: $features-card-padding;
+    background-color: $features-card-background-color;
+    border: $features-card-border;
+    border-radius: $features-card-border-radius;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+
+    width: $features-icon-size;
+    aspect-ratio: 1;
+
+    background-color: $features-icon-background-color;
+    color: $features-icon-color;
+    border-radius: 50%;
+  }
+
+  &__card-title {
+    @include text-role("title");
+
+    color: $features-card-title-color;
+  }
+
+  &__card-description {
+    @include text-role("body");
+  }
+
+  @include mq(medium) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include mq(large) {
+    &__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

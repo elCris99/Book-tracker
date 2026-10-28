@@ -1,9 +1,18 @@
+import FeaturesSection from "./components/FeaturesSection";
+import FinalCTASection from "./components/FinalCTASection";
+import GenresSection from "./components/GenresSection";
+import HeroSection from "./components/HeroSection";
+import HowItWorksSection from "./components/HowItWorksSection";
+
 function Home() {
   return (
-    <main>
-      <h1>Frontend Starter</h1>
-      <p>Home page</p>
-    </main>
+    <>
+      <HeroSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <GenresSection />
+      <FinalCTASection />
+    </>
   );
 }
 

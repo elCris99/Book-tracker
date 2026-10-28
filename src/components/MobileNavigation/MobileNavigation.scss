@@ -1,1 +1,66 @@
 @use "../../styles/abstracts/" as *;
+
+.mobile-navigation {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: calc(#{$mobile-navigation-height} + env(safe-area-inset-bottom, 0px));
+
+  background-color: $mobile-navigation-background-color;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-top: 1px solid $clr-border;
+
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  &__inner {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: $size-200;
+
+    height: 100%;
+    padding-block: $size-300;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: $size-100;
+    padding: $size-200;
+
+    min-width: 0;
+
+    text-decoration: none;
+    color: $clr-text;
+
+    @include text-role("small");
+
+    &:hover {
+      color: $clr-action;
+    }
+
+    &.active {
+      color: $clr-action;
+      font-weight: $font-weight-semi-bold;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $clr-focus;
+      outline-offset: 2px;
+      border-radius: $border-radius-1;
+    }
+  }
+
+  @include mq(large) {
+    display: none;
+  }
+}

@@ -1,0 +1,107 @@
+@use "../../../../styles/abstracts" as *;
+
+.final-cta {
+  background-color: $final-cta-background-color;
+  color: $final-cta-text-color;
+  padding-block: $final-cta-padding-block;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: $final-cta-gap;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $final-cta-content-gap;
+    text-align: center;
+    min-width: 0;
+  }
+
+  &__title {
+    @include text-role("heading");
+
+    color: $final-cta-title-color;
+  }
+
+  &__description {
+    @include text-role("lead");
+
+    color: $final-cta-description-color;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $final-cta-actions-gap;
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: $size-300;
+    }
+  }
+
+  &__login {
+    @include text-role("body");
+
+    color: $final-cta-login-color;
+
+    a {
+      color: $final-cta-login-link-color;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+
+      &:hover {
+        color: $final-cta-login-link-color-hover;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $clr-focus;
+        outline-offset: 3px;
+      }
+    }
+  }
+
+  &__media {
+    width: 100%;
+    max-width: $final-cta-media-max-width;
+    min-width: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include mq(large) {
+    padding-block: $final-cta-padding-block-large;
+
+    &__inner {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.5fr);
+      justify-items: stretch;
+      gap: $final-cta-gap-large;
+    }
+
+    &__content {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &__actions {
+      align-items: flex-start;
+    }
+
+    &__media {
+      justify-self: end;
+      max-width: $final-cta-media-max-width-large;
+    }
+  }
+}

@@ -23,6 +23,9 @@ $light: (
   "action-hover": $-clr-terracotta-900,
   "on-action": $-clr-warm-050,
   "focus": $-clr-terracotta-800,
+  "navigation-overlay": rgb(255 249 239 / 50%),
+  "hero-bg-clr-1": $-clr-terracotta-400,
+  "hero-bg-clr-2": $-clr-warm-050,
 );
 
 $dark: (
@@ -35,6 +38,9 @@ $dark: (
   "action-hover": $-clr-terracotta-300,
   "on-action": $-clr-warm-900,
   "focus": $-clr-terracotta-400,
+  "navigation-overlay": rgb(33 29 27 / 50%),
+  "hero-bg-clr-1": $-clr-warm-900,
+  "hero-bg-clr-2": $-clr-warm-600,
 );
 
 // Alias SCSS: il browser risolve le custom properties al cambio tema.
@@ -47,3 +53,6 @@ $clr-action: var(--color-action);
 $clr-action-hover: var(--color-action-hover);
 $clr-on-action: var(--color-on-action);
 $clr-focus: var(--color-focus);
+$clr-navigation-overlay: var(--color-navigation-overlay);
+$clr-hero-bg-clr-1: var(--color-hero-bg-clr-1);
+$clr-hero-bg-clr-2: var(--color-hero-bg-clr-2);

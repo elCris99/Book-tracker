@@ -4,6 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  column-gap: $button-column-gap;
 
   cursor: pointer;
   text-decoration: none;

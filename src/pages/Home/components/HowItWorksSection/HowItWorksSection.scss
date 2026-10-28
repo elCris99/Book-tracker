@@ -1,0 +1,137 @@
+@use "../../../../styles/abstracts" as *;
+
+.how-it-works {
+  background-color: $how-it-works-background-color;
+  color: $how-it-works-text-color;
+
+  @include responsive-spacing(
+    padding-block,
+    $how-it-works-padding-block,
+    $how-it-works-padding-block-large
+  );
+
+  &__inner {
+    display: grid;
+    gap: $how-it-works-gap;
+  }
+
+  &__preview,
+  &__content {
+    min-width: 0;
+  }
+
+  &__preview {
+    display: grid;
+    gap: $how-it-works-preview-gap;
+    padding: $how-it-works-preview-padding;
+    background-color: $how-it-works-preview-background-color;
+    border: $how-it-works-preview-border;
+    border-radius: $how-it-works-preview-border-radius;
+  }
+
+  &__preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $how-it-works-preview-header-gap;
+    flex-wrap: wrap;
+  }
+
+  &__preview-label {
+    @include text-role("title");
+
+    color: $how-it-works-preview-label-color;
+  }
+
+  &__preview-tag {
+    @include text-role("ui");
+
+    color: $how-it-works-preview-tag-color;
+  }
+
+  &__preview-frame {
+    overflow: hidden;
+    border-radius: $how-it-works-preview-image-radius;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__preview-note {
+    @include text-role("small");
+  }
+
+  &__content {
+    display: grid;
+    align-content: start;
+    gap: $how-it-works-content-gap;
+  }
+
+  &__title {
+    @include text-role("heading");
+
+    color: $how-it-works-title-color;
+  }
+
+  &__steps {
+    display: grid;
+    gap: $how-it-works-steps-gap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-inline-start: $size-600;
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-start;
+    gap: $how-it-works-step-gap;
+  }
+
+  &__step-number {
+    @include text-role("ui");
+
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: $how-it-works-step-number-size;
+    aspect-ratio: 1;
+    background-color: $how-it-works-step-number-background;
+    color: $how-it-works-step-number-color;
+    border-radius: 50%;
+  }
+
+  &__step-content {
+    display: grid;
+    gap: $how-it-works-step-content-gap;
+    min-width: 0;
+  }
+
+  &__step-title {
+    @include text-role("title");
+
+    color: $how-it-works-step-title-color;
+  }
+
+  &__step-description {
+    @include text-role("body");
+
+    max-width: $how-it-works-step-description-max-width;
+  }
+
+  .button {
+    justify-self: start;
+    margin-inline-start: $size-600;
+  }
+
+  @include mq(large) {
+    &__inner {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: $how-it-works-gap-large;
+    }
+  }
+}

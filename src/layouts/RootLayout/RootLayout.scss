@@ -1,0 +1,18 @@
+@use "../../styles/abstracts" as *;
+
+.root-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+
+  padding-bottom: calc(#{$mobile-navigation-height} + env(safe-area-inset-bottom, 0px));
+
+  @include mq(large) {
+    padding-bottom: 0;
+  }
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+}
